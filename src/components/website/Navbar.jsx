@@ -3,7 +3,9 @@
 import { Menu, Phone, X, Clock, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState, useCallback } from "react";
+import PrimaryButton from "@/components/ui/primaryButton";
 
 const navItems = [
   { href: "/about", label: "About" },
@@ -13,9 +15,11 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const isElevated = isScrolled || isOpen;
+  const isHomePage = pathname === "/";
+  const isElevated = !isHomePage || isScrolled || isOpen;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,10 +83,7 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`relative px-4 py-2 text-xs uppercase tracking-[0.22em] transition-colors duration-300 ${isElevated
-                  ? "text-[rgba(255,255,255,0.7)] hover:text-[var(--color-gold)]"
-                  : "text-[rgba(255,255,255,0.85)] hover:text-white"
-                }`}
+              className="group relative px-4 py-2 text-xs uppercase tracking-[0.22em] text-[var(--color-gold)] drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)] transition-colors duration-300 hover:text-white"
             >
               <span className="relative">
                 {item.label}
@@ -94,13 +95,12 @@ export default function Navbar() {
 
         {/* ── Desktop right actions ── */}
         <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href="tel:+4907221123456"
-            className="group/reserve inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,106,0.25)] bg-[rgba(201,168,106,0.06)] px-5 py-2.5 text-xs uppercase tracking-[0.15em] text-[var(--color-gold)] backdrop-blur-sm transition-all duration-300 hover:border-[rgba(201,168,106,0.5)] hover:bg-[rgba(201,168,106,0.12)] hover:shadow-[0_0_20px_rgba(201,168,106,0.1)]"
-          >
-            <Phone size={13} className="transition-transform duration-300 group-hover/reserve:rotate-12" />
-            Reserve
-          </a>
+          <PrimaryButton asChild className="gap-2 px-5 py-2.5 text-xs tracking-[0.15em]">
+            <a href="tel:+4907221123456">
+              <Phone size={13} />
+              Reserve
+            </a>
+          </PrimaryButton>
         </div>
 
         {/* ── Mobile hamburger ── */}
@@ -151,7 +151,7 @@ export default function Navbar() {
                 style={{ transitionDelay: isOpen ? `${index * 60}ms` : "0ms" }}
               >
                 <span className="h-px w-6 bg-[rgba(201,168,106,0.3)] transition-all duration-300 group-hover/link:w-10 group-hover/link:bg-[var(--color-gold)]" />
-                <span className="font-[var(--font-playfair)] text-2xl tracking-wide text-white transition-colors duration-300 group-hover/link:text-[var(--color-gold)]">
+                <span className="font-[var(--font-playfair)] text-2xl tracking-wide text-[var(--color-gold)] transition-colors duration-300 group-hover/link:text-white">
                   {item.label}
                 </span>
               </Link>
@@ -182,17 +182,20 @@ export default function Navbar() {
 
           {/* Bottom CTA */}
           <div className="mt-auto flex flex-col gap-3 px-4 pb-6">
-            <a
-              href="tel:+4907221123456"
-              className="flex items-center justify-center gap-2.5 rounded-full bg-[linear-gradient(135deg,var(--color-gold),#ddbf88)] px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-primary-dark)] transition-all duration-300 hover:shadow-[0_16px_30px_rgba(201,168,106,0.26)]"
-              onClick={closeMenu}
-            >
-              <Phone size={16} />
-              Reserve a Table
-            </a>
+            <PrimaryButton asChild className="gap-2.5 px-6 py-3.5 tracking-[0.12em]">
+              <a href="tel:+4907221123456" onClick={closeMenu}>
+                <Phone size={16} />
+                Reserve a Table
+              </a>
+            </PrimaryButton>
           </div>
         </div>
       </div>
     </header>
   );
 }
+
+
+
+
+

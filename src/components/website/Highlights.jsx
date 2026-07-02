@@ -4,18 +4,18 @@ import { ChefHat, Flame, UtensilsCrossed, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-/* ──────────────────────────────────────────────
-   Section ornament — small decorative divider
-   ────────────────────────────────────────────── */
 function SectionDivider({ className = "" }) {
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      <span className="h-px w-8 bg-[rgba(201,168,106,0.4)]" />
-      <svg viewBox="0 0 16 16" className="h-3 w-3 text-[var(--color-gold)]" fill="none" aria-hidden="true">
-        <path d="M8 1 L15 8 L8 15 L1 8Z" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-        <circle cx="8" cy="8" r="2" fill="currentColor" opacity="0.4" />
+    <div className={`flex items-center gap-4 ${className}`}>
+      <span className="h-px w-12 bg-[linear-gradient(to_right,transparent,rgba(201,168,106,0.55))] sm:w-16" />
+      <svg viewBox="0 0 48 18" className="h-4 w-16 text-[var(--color-gold)]" fill="none" aria-hidden="true">
+        <path d="M1 9 H17" stroke="currentColor" strokeWidth="0.9" opacity="0.4" />
+        <path d="M31 9 H47" stroke="currentColor" strokeWidth="0.9" opacity="0.4" />
+        <path d="M18 9 C20 5.5 22 4 24 4 C26 4 28 5.5 30 9" stroke="currentColor" strokeWidth="0.9" opacity="0.8" />
+        <path d="M18 9 C20 12.5 22 14 24 14 C26 14 28 12.5 30 9" stroke="currentColor" strokeWidth="0.9" opacity="0.8" />
+        <circle cx="24" cy="9" r="1.8" fill="currentColor" opacity="0.65" />
       </svg>
-      <span className="h-px w-8 bg-[rgba(201,168,106,0.4)]" />
+      <span className="h-px w-12 bg-[linear-gradient(to_left,transparent,rgba(201,168,106,0.55))] sm:w-16" />
     </div>
   );
 }
@@ -77,15 +77,16 @@ export default function Highlights() {
   }, []);
 
   return (
-    <section id="highlights" className="relative overflow-hidden py-24 sm:py-32">
-      {/* Subtle background pattern */}
+    <section
+      id="highlights"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#f6efe0_0%,#fbf8f1_22%,transparent_100%)] py-32 sm:py-36"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(31,75,67,0.04),transparent_60%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,106,0.05),transparent_60%)]" />
 
       <div className="relative mx-auto w-full container px-5 sm:px-8 lg:px-10">
-        {/* Section header */}
         <div className="mx-auto max-w-2xl text-center">
-          <SectionDivider className="mb-6 justify-center" />
+          <SectionDivider className="mb-6 justify-center opacity-80" />
 
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-gold)]">
             From Our Kitchen to Your Table
@@ -103,19 +104,18 @@ export default function Highlights() {
           </p>
         </div>
 
-        {/* Cards grid */}
         <div className="mt-16 grid gap-7 sm:mt-20 lg:grid-cols-3">
           {highlightCards.map(({ title, subtitle, description, image, icon: Icon }, index) => (
             <article
               key={title}
-              ref={(el) => { cardRefs.current[index] = el; }}
-              className={`group relative overflow-hidden rounded-3xl border border-[var(--color-border)] bg-white shadow-[0_8px_40px_rgba(23,59,53,0.06)] transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(23,59,53,0.12)] ${visibleCards.has(index)
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-12 opacity-0"
-                }`}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
+              className={`group relative overflow-hidden rounded-3xl border border-[var(--color-border)] bg-white shadow-[0_8px_40px_rgba(23,59,53,0.06)] transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(23,59,53,0.12)] ${
+                visibleCards.has(index) ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+              }`}
               style={{ transitionDelay: visibleCards.has(index) ? `${index * 150}ms` : "0ms" }}
             >
-              {/* Image area */}
               <div className="relative h-60 overflow-hidden sm:h-64">
                 <Image
                   src={image}
@@ -124,10 +124,8 @@ export default function Highlights() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 33vw"
                 />
-                {/* Image overlay gradient */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(23,59,53,0.6)_0%,transparent_60%)]" />
 
-                {/* Floating icon badge */}
                 <div className="absolute bottom-4 left-5">
                   <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.2)] bg-[rgba(15,40,35,0.7)] px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-[var(--color-gold)] backdrop-blur-md">
                     <Icon size={13} />
@@ -136,9 +134,7 @@ export default function Highlights() {
                 </div>
               </div>
 
-              {/* Content area */}
               <div className="relative p-6 sm:p-7">
-                {/* Gold accent line */}
                 <div className="absolute left-6 top-0 h-px w-12 bg-[linear-gradient(to_right,var(--color-gold),transparent)] sm:left-7" />
 
                 <h3 className="font-[var(--font-playfair)] text-2xl tracking-wide text-[var(--color-primary-dark)]">
@@ -148,7 +144,6 @@ export default function Highlights() {
                   {description}
                 </p>
 
-                {/* Discover link */}
                 <div className="mt-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)] transition-colors duration-300 group-hover:text-[var(--color-gold)]">
                   Discover
                   <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -161,3 +156,4 @@ export default function Highlights() {
     </section>
   );
 }
+

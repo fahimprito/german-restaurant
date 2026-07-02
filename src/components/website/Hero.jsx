@@ -3,9 +3,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-/* ──────────────────────────────────────────────
-   Decorative SVG ornament used as a flourish
-   ────────────────────────────────────────────── */
 function Ornament({ className = "" }) {
   return (
     <svg
@@ -32,9 +29,6 @@ function Ornament({ className = "" }) {
   );
 }
 
-/* ──────────────────────────────────────────────
-   Corner frame ornament
-   ────────────────────────────────────────────── */
 function CornerFrame({ position = "top-left" }) {
   const rotations = {
     "top-left": "",
@@ -66,18 +60,43 @@ function CornerFrame({ position = "top-left" }) {
   );
 }
 
+function SectionBridge() {
+  return (
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 translate-y-1/2">
+      <div className="mx-auto flex w-fit flex-col items-center">
+        <div className="relative flex items-center justify-center px-10">
+          <span className="h-px w-20 bg-[linear-gradient(to_right,transparent,rgba(201,168,106,0.85))] sm:w-28" />
+          <div className="mx-4 flex h-14 w-14 items-center justify-center rounded-full border border-[rgba(201,168,106,0.28)] bg-[linear-gradient(180deg,rgba(18,46,41,0.96),rgba(18,46,41,0.82))] shadow-[0_14px_30px_rgba(0,0,0,0.24)]">
+            <svg
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-7 w-7 text-[var(--color-gold)]"
+              aria-hidden="true"
+            >
+              <circle cx="20" cy="20" r="18" stroke="currentColor" strokeWidth="0.8" opacity="0.28" />
+              <path d="M20 6 L30 20 L20 34 L10 20 Z" stroke="currentColor" strokeWidth="1" opacity="0.88" />
+              <path d="M20 12 L25 20 L20 28 L15 20 Z" fill="currentColor" opacity="0.22" />
+              <circle cx="20" cy="20" r="2.2" fill="currentColor" opacity="0.72" />
+            </svg>
+          </div>
+          <span className="h-px w-20 bg-[linear-gradient(to_left,transparent,rgba(201,168,106,0.85))] sm:w-28" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // small delay for dramatic entrance
     const timer = setTimeout(() => setIsVisible(true), 150);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <section id="hero" className="relative isolate overflow-hidden">
-      {/* ── Background image ── */}
       <div className="absolute inset-0">
         <Image
           src="/images/culinary/3BET8DNCNTQ_yGIENFsqkPIsbUedOIZ9YqsoUFTCWc7IGHhj45p_odwLlrVEvtGVCDHMii_lvu7m9ZEX0hsVfmIDci6CqBV-pijSwTTIT077qxWLOySKvc2T1oJoSn7WFq2EBQqcrVdQKy6rnU-n5MyqgCAMOJk8ix8Mt81E5e4VEZp1RS7mH8lKQIT_irnl.jpg"
@@ -89,35 +108,28 @@ export default function Hero() {
         />
       </div>
 
-      {/* ── Multi-layer gradient overlay ── */}
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,24,21,0.78)_0%,rgba(10,24,21,0.62)_40%,rgba(10,24,21,0.7)_70%,rgba(10,24,21,0.92)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,106,0.1)_0%,transparent_70%)]" />
-
-
-      {/* ── Atmospheric glow orbs ── */}
       <div className="absolute -left-24 top-1/4 h-96 w-96 rounded-full bg-[rgba(201,168,106,0.08)] blur-[120px]" />
       <div className="absolute -right-24 bottom-1/4 h-80 w-80 rounded-full bg-[rgba(31,75,67,0.15)] blur-[100px]" />
       <div className="absolute left-1/2 top-0 h-64 w-64 -translate-x-1/2 rounded-full bg-[rgba(201,168,106,0.06)] blur-[80px]" />
-
-      {/* ── Subtle vignette ── */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(10,24,21,0.4)_100%)]" />
 
-      {/* ── Corner frames ── */}
       <CornerFrame position="top-left" />
       <CornerFrame position="top-right" />
       <CornerFrame position="bottom-left" />
       <CornerFrame position="bottom-right" />
 
-      {/* ── Main content ── */}
-      <div className="relative flex min-h-screen flex-col items-center justify-center px-5 py-32 text-center sm:px-8">
+      <div className="relative flex min-h-screen flex-col items-center justify-center px-5 py-20 text-center sm:px-8">
         <div
-          className={`flex max-w-4xl flex-col items-center transition-all duration-[1200ms] ease-out ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-            }`}
+          className={`flex max-w-4xl flex-col items-center transition-all duration-[1200ms] ease-out ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
         >
-          {/* ── Logo ── */}
           <div
-            className={`relative mb-8 transition-all delay-100 duration-[1400ms] ease-out ${isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-              }`}
+            className={`relative mb-8 transition-all delay-100 duration-[1400ms] ease-out ${
+              isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+            }`}
           >
             <div className="absolute inset-0 rounded-full bg-[rgba(201,168,106,0.12)] blur-3xl" />
             <Image
@@ -130,58 +142,58 @@ export default function Hero() {
             />
           </div>
 
-          {/* ── Upper ornament ── */}
           <Ornament
-            className={`mb-6 w-48 text-[var(--color-gold)] transition-all delay-300 duration-[1000ms] ease-out sm:w-56 ${isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
-              }`}
+            className={`mb-6 w-48 text-[var(--color-gold)] transition-all delay-300 duration-[1000ms] ease-out sm:w-56 ${
+              isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
+            }`}
           />
 
-          {/* ── Established badge ── */}
           <p
-            className={`mb-5 text-xs uppercase tracking-[0.5em] text-[rgba(255,255,255,0.6)] transition-all delay-[400ms] duration-[1000ms] ease-out sm:text-sm ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-              }`}
+            className={`mb-5 text-xs uppercase tracking-[0.5em] text-[rgba(255,255,255,0.6)] transition-all delay-[400ms] duration-[1000ms] ease-out sm:text-sm ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+            }`}
           >
-            Est. 1928 &nbsp;·&nbsp; Baden-Baden, Germany
+            Est. 1928 &nbsp;&middot;&nbsp; Baden-Baden, Germany
           </p>
 
-          {/* ── Restaurant name ── */}
           <h1
-            className={`font-[var(--font-playfair)] text-5xl leading-[1.0] tracking-wide text-white transition-all delay-500 duration-[1200ms] ease-out sm:text-6xl md:text-7xl lg:text-8xl ${isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-              }`}
+            className={`font-[var(--font-playfair)] text-5xl leading-[1.0] tracking-wide text-white transition-all delay-500 duration-[1200ms] ease-out sm:text-6xl md:text-7xl lg:text-8xl ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
           >
             Schwarzwald
             <br />
             <span className="italic">Stube</span>
           </h1>
 
-          {/* ── Subtitle ── */}
           <p
-            className={`mt-5 text-base uppercase tracking-[0.4em] text-[var(--color-gold)] transition-all delay-[600ms] duration-[1000ms] ease-out sm:text-lg ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-              }`}
+            className={`mt-5 text-base uppercase tracking-[0.4em] text-[var(--color-gold)] transition-all delay-[600ms] duration-[1000ms] ease-out sm:text-lg ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+            }`}
           >
             Gasthof &amp; Restaurant
           </p>
 
-          {/* ── Lower ornament ── */}
           <Ornament
-            className={`mt-6 w-48 text-[var(--color-gold)] transition-all delay-700 duration-[1000ms] ease-out sm:w-56 ${isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
-              }`}
+            className={`mt-6 w-48 text-[var(--color-gold)] transition-all delay-700 duration-[1000ms] ease-out sm:w-56 ${
+              isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
+            }`}
           />
 
-          {/* ── Description ── */}
           <p
-            className={`mt-8 max-w-xl text-base leading-[1.9] text-[rgba(255,255,255,0.72)] transition-all delay-[800ms] duration-[1000ms] ease-out sm:text-lg ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-              }`}
+            className={`mt-8 max-w-xl text-base leading-[1.9] text-[rgba(255,255,255,0.72)] transition-all delay-[800ms] duration-[1000ms] ease-out sm:text-lg ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+            }`}
           >
             Fine German cuisine rooted in nearly a century of Black Forest tradition.
             An intimate atmosphere of heritage, warmth, and refined hospitality
             awaits you.
           </p>
 
-          {/* ── CTA buttons ── */}
           <div
-            className={`mt-10 flex flex-wrap items-center justify-center gap-4 transition-all delay-[900ms] duration-[1000ms] ease-out sm:gap-5 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-              }`}
+            className={`mt-10 flex flex-wrap items-center justify-center gap-4 transition-all delay-[900ms] duration-[1000ms] ease-out sm:gap-5 ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
           >
             <a
               href="#menu"
@@ -193,16 +205,18 @@ export default function Hero() {
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,106,0.35)] bg-[rgba(201,168,106,0.06)] px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-gold)] backdrop-blur-sm transition-all duration-300 hover:border-[rgba(201,168,106,0.55)] hover:bg-[rgba(201,168,106,0.12)]"
+              style={{ color: "var(--color-gold)" }}
             >
               Reserve a Table
             </a>
           </div>
         </div>
-
       </div>
 
-      {/* ── Bottom fade to cream ── */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-[linear-gradient(to_top,var(--color-cream),transparent)]" />
+      {/* <SectionBridge /> */}
+      {/* <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(to_top,var(--color-cream),transparent)]" /> */}
     </section>
   );
 }
+
+
