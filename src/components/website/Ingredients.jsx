@@ -26,13 +26,15 @@ const ingredientCards = [
 export default function Ingredients() {
   return (
     <section className="py-20 sm:py-24">
-      <div className="section-shell">
-        <div className="section-copy">
-          <p className="eyebrow">Our Sourcing & Ingredients</p>
-          <h2 className="section-title">
+      <div className="mx-auto w-full container px-5 sm:px-8 lg:px-10">
+        <div className="max-w-2xl">
+          <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,106,0.45)] bg-[rgba(255,255,255,0.55)] px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-primary)]">
+            Our Sourcing & Ingredients
+          </p>
+          <h2 className="font-[var(--font-playfair)] text-4xl leading-tight text-[var(--color-primary-dark)] sm:text-5xl">
             True elegance begins with the finest raw materials
           </h2>
-          <p className="section-lead">
+          <p className="mt-5 text-base leading-8 text-[rgba(44,44,44,0.82)] sm:text-lg">
             We bridge the gap between local sustainability and authentic German
             imports, combining premium sourcing with an uncompromising culinary
             standard.
@@ -41,7 +43,10 @@ export default function Ingredients() {
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           {ingredientCards.map(({ title, items, icon: Icon }) => (
-            <article key={title} className="surface-card rounded-[32px] p-8">
+            <article
+              key={title}
+              className="rounded-[28px] rounded-[32px] border border-[var(--color-border)] bg-[rgba(255,255,255,0.78)] p-8 shadow-[var(--shadow-card)] backdrop-blur-sm"
+            >
               <span className="inline-flex rounded-full bg-[rgba(31,75,67,0.08)] p-3 text-[var(--color-primary)]">
                 <Icon size={18} />
               </span>

@@ -31,11 +31,15 @@ const highlightCards = [
 export default function Highlights() {
   return (
     <section id="highlights" className="bg-[rgba(31,75,67,0.04)] py-20 sm:py-24">
-      <div className="section-shell">
-        <div className="section-copy">
-          <p className="eyebrow">From Our Kitchen to Your Table</p>
-          <h2 className="section-title">A curated journey through Germany</h2>
-          <p className="section-lead">
+      <div className="mx-auto w-full container px-5 sm:px-8 lg:px-10">
+        <div className="max-w-2xl">
+          <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,106,0.45)] bg-[rgba(255,255,255,0.55)] px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-primary)]">
+            From Our Kitchen to Your Table
+          </p>
+          <h2 className="font-[var(--font-playfair)] text-4xl leading-tight text-[var(--color-primary-dark)] sm:text-5xl">
+            A curated journey through Germany
+          </h2>
+          <p className="mt-5 text-base leading-8 text-[rgba(44,44,44,0.82)] sm:text-lg">
             Our menu is a curated journey through Germany&apos;s rich culinary
             landscape, blending time-honored recipes with modern culinary
             artistry. Every dish is prepared from scratch by our master chefs.
@@ -44,7 +48,10 @@ export default function Highlights() {
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {highlightCards.map(({ title, description, image, icon: Icon }) => (
-            <article key={title} className="surface-card overflow-hidden">
+            <article
+              key={title}
+              className="overflow-hidden rounded-[28px] border border-[var(--color-border)] bg-[rgba(255,255,255,0.78)] shadow-[var(--shadow-card)] backdrop-blur-sm"
+            >
               <div className="relative h-64">
                 <Image src={image} alt={title} fill className="object-cover" />
               </div>

@@ -18,7 +18,7 @@ export default function Hero() {
       <div className="absolute -left-16 top-20 h-72 w-72 rounded-full bg-[rgba(201,168,106,0.18)] blur-3xl" />
       <div className="absolute bottom-10 right-0 h-64 w-64 rounded-full bg-[rgba(255,255,255,0.08)] blur-3xl" />
 
-      <div className="section-shell relative flex min-h-screen items-center py-24">
+      <div className="relative mx-auto flex min-h-screen w-full container items-center px-5 py-24 sm:px-8 lg:px-10">
         <div className="max-w-3xl">
           <Image
             src="/images/logo.png"

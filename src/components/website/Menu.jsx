@@ -9,10 +9,10 @@ export default function Menu() {
 
   return (
     <section id="menu" className="bg-[var(--color-primary-dark)] py-20 text-white sm:py-24">
-      <div className="section-shell">
+      <div className="mx-auto w-full container px-5 sm:px-8 lg:px-10">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="section-copy">
-            <p className="eyebrow border-white/20 bg-white/8 text-[var(--color-gold)]">
+          <div className="max-w-2xl">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/8 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-gold)]">
               Food Menu
             </p>
             <h2 className="font-[var(--font-playfair)] text-4xl sm:text-5xl">

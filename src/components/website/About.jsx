@@ -24,10 +24,14 @@ const philosophyCards = [
 export default function About() {
   return (
     <section id="about" className="py-20 sm:py-24">
-      <div className="section-shell grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="section-copy">
-          <p className="eyebrow">Welcome to Schwarzwald Stube</p>
-          <h2 className="section-title">A table shaped by heritage</h2>
+      <div className="mx-auto grid w-full container gap-10 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
+        <div className="max-w-2xl">
+          <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,106,0.45)] bg-[rgba(255,255,255,0.55)] px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-primary)]">
+            Welcome to Schwarzwald Stube
+          </p>
+          <h2 className="font-[var(--font-playfair)] text-4xl leading-tight text-[var(--color-primary-dark)] sm:text-5xl">
+            A table shaped by heritage
+          </h2>
 
           <div className="mt-8 space-y-7 text-base leading-8 text-[rgba(44,44,44,0.84)]">
             <div>
@@ -74,7 +78,7 @@ export default function About() {
         </div>
 
         <div className="space-y-5">
-          <div className="surface-card rounded-[32px] p-7">
+          <div className="rounded-[28px] rounded-[32px] border border-[var(--color-border)] bg-[rgba(255,255,255,0.78)] p-7 shadow-[var(--shadow-card)] backdrop-blur-sm">
             <p className="text-sm uppercase tracking-[0.22em] text-[var(--color-primary)]">
               Our Philosophy
             </p>

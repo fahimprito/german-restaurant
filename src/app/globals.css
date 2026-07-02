@@ -55,39 +55,3 @@ img {
 ::selection {
   background: rgba(201, 168, 106, 0.3);
 }
-
-@layer components {
-  .section-shell {
-    @apply mx-auto w-full container px-5 sm:px-8 lg:px-10;
-  }
-
-  .section-copy {
-    @apply max-w-2xl;
-  }
-
-  .eyebrow {
-    @apply mb-3 inline-flex items-center gap-2 rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em];
-    border-color: rgba(201, 168, 106, 0.45);
-    color: var(--color-primary);
-    background: rgba(255, 255, 255, 0.55);
-  }
-
-  .section-title {
-    font-family: var(--font-playfair), serif;
-    @apply text-4xl leading-tight sm:text-5xl;
-    color: var(--color-primary-dark);
-  }
-
-  .section-lead {
-    @apply mt-5 text-base leading-8 sm:text-lg;
-    color: rgba(44, 44, 44, 0.82);
-  }
-
-  .surface-card {
-    @apply rounded-[28px] border backdrop-blur-sm;
-    border-color: var(--color-border);
-    background: rgba(255, 255, 255, 0.78);
-    box-shadow: var(--shadow-card);
-  }
-
-}

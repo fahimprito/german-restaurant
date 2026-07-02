@@ -39,14 +39,16 @@ export default function MenuTable() {
   return (
     <>
       <section className="space-y-6">
-        <header className="surface-card rounded-[32px] px-6 py-8 sm:px-8">
+        <header className="rounded-[28px] rounded-[32px] border border-[var(--color-border)] bg-[rgba(255,255,255,0.78)] px-6 py-8 shadow-[var(--shadow-card)] backdrop-blur-sm sm:px-8">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="eyebrow">Food Menu Management</p>
-              <h1 className="section-title text-3xl sm:text-4xl">
+              <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,106,0.45)] bg-[rgba(255,255,255,0.55)] px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-primary)]">
+                Food Menu Management
+              </p>
+              <h1 className="font-[var(--font-playfair)] text-3xl leading-tight text-[var(--color-primary-dark)] sm:text-4xl">
                 Add, edit, and curate the public menu
               </h1>
-              <p className="section-lead max-w-3xl">
+              <p className="mt-5 max-w-3xl text-base leading-8 text-[rgba(44,44,44,0.82)] sm:text-lg">
                 All CRUD actions update the shared context and the
                 `restaurant-menu` local storage key, keeping the public website
                 in sync without a backend.
@@ -59,7 +61,7 @@ export default function MenuTable() {
           </div>
         </header>
 
-        <div className="surface-card overflow-hidden rounded-[32px]">
+        <div className="overflow-hidden rounded-[28px] rounded-[32px] border border-[var(--color-border)] bg-[rgba(255,255,255,0.78)] shadow-[var(--shadow-card)] backdrop-blur-sm">
           {!isHydrated ? (
             <div className="p-8 text-sm text-[rgba(44,44,44,0.72)]">Loading menu items...</div>
           ) : (

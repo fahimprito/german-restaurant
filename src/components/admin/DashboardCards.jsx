@@ -30,7 +30,10 @@ export default function DashboardCards() {
   return (
     <section className="grid gap-5 md:grid-cols-3">
       {cards.map(({ key, title, icon: Icon, getValue }) => (
-        <article key={key} className="surface-card rounded-[28px] p-6">
+        <article
+          key={key}
+          className="rounded-[28px] border border-[var(--color-border)] bg-[rgba(255,255,255,0.78)] p-6 shadow-[var(--shadow-card)] backdrop-blur-sm"
+        >
           <span className="inline-flex rounded-full bg-[rgba(31,75,67,0.08)] p-3 text-[var(--color-primary)]">
             <Icon size={18} />
           </span>

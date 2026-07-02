@@ -9,10 +9,14 @@ const hours = [
 export default function Contact() {
   return (
     <section id="contact" className="py-20 sm:py-24">
-      <div className="section-shell grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="surface-card rounded-[32px] p-8">
-          <p className="eyebrow">Find Us</p>
-          <h2 className="section-title">An address worth lingering over</h2>
+      <div className="mx-auto grid w-full container gap-6 px-5 sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:px-10">
+        <div className="rounded-[28px] rounded-[32px] border border-[var(--color-border)] bg-[rgba(255,255,255,0.78)] p-8 shadow-[var(--shadow-card)] backdrop-blur-sm">
+          <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,106,0.45)] bg-[rgba(255,255,255,0.55)] px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-primary)]">
+            Find Us
+          </p>
+          <h2 className="font-[var(--font-playfair)] text-4xl leading-tight text-[var(--color-primary-dark)] sm:text-5xl">
+            An address worth lingering over
+          </h2>
 
           <div className="mt-8 space-y-6 text-sm leading-7 text-[rgba(44,44,44,0.8)]">
             <div className="flex gap-4">
@@ -76,7 +80,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="surface-card relative overflow-hidden rounded-[32px] p-3">
+        <div className="relative overflow-hidden rounded-[28px] rounded-[32px] border border-[var(--color-border)] bg-[rgba(255,255,255,0.78)] p-3 shadow-[var(--shadow-card)] backdrop-blur-sm">
           <div className="flex h-full min-h-[420px] flex-col justify-between rounded-[24px] border border-dashed border-[rgba(31,75,67,0.18)] bg-[linear-gradient(160deg,rgba(31,75,67,0.14),rgba(201,168,106,0.14))] p-8">
             <div>
               <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-primary)]">

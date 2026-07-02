@@ -48,7 +48,7 @@ export default function Navbar() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="section-shell flex items-center justify-between gap-4 py-3">
+      <div className="mx-auto flex w-full container items-center justify-between gap-4 px-5 py-3 sm:px-8 lg:px-10">
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/images/logo.png"
@@ -104,7 +104,7 @@ export default function Navbar() {
       </div>
 
       {isOpen ? (
-        <div className="section-shell border-t border-white/10 py-4 lg:hidden">
+        <div className="mx-auto w-full container border-t border-white/10 px-5 py-4 sm:px-8 lg:px-10 lg:hidden">
           <nav className="flex flex-col gap-3">
             {navItems.map((item) => (
               <Link
