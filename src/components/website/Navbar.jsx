@@ -83,7 +83,7 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="group relative px-4 py-2 text-xs uppercase tracking-[0.22em] text-[var(--color-gold)] drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)] transition-colors duration-300 hover:text-white"
+              className="group relative px-4 py-2 text-sm font-medium uppercase tracking-[0.18em] text-[var(--color-gold)] drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] transition-colors duration-300 hover:text-white"
             >
               <span className="relative">
                 {item.label}
