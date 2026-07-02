@@ -1,10 +1,9 @@
 "use client";
 
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, Phone, X, Clock, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import PrimaryButton from "@/components/ui/primaryButton";
+import { useEffect, useState, useCallback } from "react";
 
 const navItems = [
   { href: "/about", label: "About" },
@@ -17,15 +16,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const isElevated = isScrolled || isOpen;
-  const navTextClass = isElevated
-    ? "text-[var(--color-gold)]"
-    : "text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.45)]";
-  const brandSubtextClass = isElevated
-    ? "text-[rgba(255,255,255,0.88)]"
-    : "text-[rgba(255,255,255,0.88)] [text-shadow:0_2px_18px_rgba(0,0,0,0.45)]";
-  const reserveButtonClass = isElevated
-    ? "border-white/30 bg-white/10 text-white hover:bg-white/18"
-    : "border-white/40 bg-black/20 text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.45)] hover:bg-black/30";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,92 +30,169 @@ export default function Navbar() {
     };
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  const closeMenu = useCallback(() => setIsOpen(false), []);
+
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        isElevated
-          ? "border-b border-white/10 bg-[rgba(23,59,53,0.88)] backdrop-blur-xl"
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${isElevated
+          ? "border-b border-[rgba(201,168,106,0.12)] bg-[rgba(15,40,35,0.95)] shadow-[0_4px_30px_rgba(0,0,0,0.25)] backdrop-blur-2xl"
           : "border-b border-transparent bg-transparent"
-      }`}
+        }`}
     >
-      <div className="mx-auto flex w-full container items-center justify-between gap-4 px-5 py-3 sm:px-8 lg:px-10">
-        <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/images/logo.png"
-            alt="Schwarzwald Stube logo"
-            width={54}
-            height={54}
-          />
+      <div className="mx-auto flex w-full container items-center justify-between gap-4 px-5 py-3.5 sm:px-8 lg:px-10">
+        {/* ── Brand ── */}
+        <Link href="/" className="group flex items-center gap-3.5">
+          <div className="relative">
+            <Image
+              src="/images/logo.png"
+              alt="Schwarzwald Stube logo"
+              width={50}
+              height={50}
+              className="transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
           <div className="hidden sm:block">
-            <p className="font-[var(--font-playfair)] text-lg text-white">
+            <p className="font-[var(--font-playfair)] text-lg leading-tight tracking-wide text-white transition-colors duration-300 group-hover:text-[var(--color-gold)]">
               Schwarzwald Stube
             </p>
-            <p
-              className={`text-xs uppercase tracking-[0.28em] ${brandSubtextClass}`}
-            >
-              Gasthof & Restaurant
+            <p className="mt-0.5 text-[10px] uppercase tracking-[0.35em] text-[rgba(201,168,106,0.7)]">
+              Gasthof &amp; Restaurant
             </p>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        {/* ── Desktop nav ── */}
+        <nav className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm uppercase tracking-[0.2em] transition hover:text-white ${navTextClass}`}
+              className={`relative px-4 py-2 text-xs uppercase tracking-[0.22em] transition-colors duration-300 ${isElevated
+                  ? "text-[rgba(255,255,255,0.7)] hover:text-[var(--color-gold)]"
+                  : "text-[rgba(255,255,255,0.85)] hover:text-white"
+                }`}
             >
-              {item.label}
+              <span className="relative">
+                {item.label}
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-[var(--color-gold)] transition-all duration-300 group-hover:w-full" />
+              </span>
             </Link>
           ))}
         </nav>
 
+        {/* ── Desktop right actions ── */}
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href="tel:+4907221123456"
-            className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition ${reserveButtonClass}`}
+            className="group/reserve inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,106,0.25)] bg-[rgba(201,168,106,0.06)] px-5 py-2.5 text-xs uppercase tracking-[0.15em] text-[var(--color-gold)] backdrop-blur-sm transition-all duration-300 hover:border-[rgba(201,168,106,0.5)] hover:bg-[rgba(201,168,106,0.12)] hover:shadow-[0_0_20px_rgba(201,168,106,0.1)]"
           >
-            <Phone size={16} />
+            <Phone size={13} className="transition-transform duration-300 group-hover/reserve:rotate-12" />
             Reserve
           </a>
-          <PrimaryButton asChild className="px-5 py-2.5">
-            <Link href="/admin">Admin</Link>
-          </PrimaryButton>
         </div>
 
+        {/* ── Mobile hamburger ── */}
         <button
           type="button"
           aria-label="Toggle navigation"
-          className="inline-flex rounded-full border border-white/15 p-2 text-white lg:hidden"
+          className={`relative inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 lg:hidden ${isOpen
+              ? "border-[rgba(201,168,106,0.4)] bg-[rgba(201,168,106,0.1)] text-[var(--color-gold)]"
+              : "border-[rgba(255,255,255,0.15)] bg-[rgba(255,255,255,0.05)] text-white"
+            }`}
           onClick={() => setIsOpen((value) => !value)}
         >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
+          <span className={`absolute transition-all duration-300 ${isOpen ? "rotate-0 opacity-100" : "rotate-90 opacity-0"}`}>
+            <X size={18} />
+          </span>
+          <span className={`absolute transition-all duration-300 ${isOpen ? "-rotate-90 opacity-0" : "rotate-0 opacity-100"}`}>
+            <Menu size={18} />
+          </span>
         </button>
       </div>
 
-      {isOpen ? (
-        <div className="mx-auto w-full container border-t border-white/10 px-5 py-4 sm:px-8 lg:px-10 lg:hidden">
-          <nav className="flex flex-col gap-3">
-            {navItems.map((item) => (
+      {/* ── Mobile menu (full-screen overlay) ── */}
+      <div
+        className={`fixed inset-0 top-[calc(var(--nav-height,62px))] z-40 transition-all duration-500 lg:hidden ${isOpen
+            ? "visible opacity-100"
+            : "invisible opacity-0"
+          }`}
+        style={{ "--nav-height": "62px" }}
+      >
+        {/* Backdrop */}
+        <div
+          className={`absolute inset-0 bg-[rgb(10,24,21)] transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0"
+            }`}
+          onClick={closeMenu}
+        />
+
+        {/* Content */}
+        <div className={`relative flex h-full flex-col px-8 py-8 transition-all duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
+          }`}>
+          {/* Nav links */}
+          <nav className="flex flex-col gap-1">
+            {navItems.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-2xl px-4 py-3 text-sm uppercase tracking-[0.18em] text-white/85 transition hover:bg-white/6"
-                onClick={() => setIsOpen(false)}
+                className="group/link flex items-center gap-4 rounded-2xl px-4 py-4 transition-all duration-300 hover:bg-[rgba(201,168,106,0.06)]"
+                onClick={closeMenu}
+                style={{ transitionDelay: isOpen ? `${index * 60}ms` : "0ms" }}
               >
-                {item.label}
+                <span className="h-px w-6 bg-[rgba(201,168,106,0.3)] transition-all duration-300 group-hover/link:w-10 group-hover/link:bg-[var(--color-gold)]" />
+                <span className="font-[var(--font-playfair)] text-2xl tracking-wide text-white transition-colors duration-300 group-hover/link:text-[var(--color-gold)]">
+                  {item.label}
+                </span>
               </Link>
             ))}
-            <Link
-              href="/admin"
-              className="rounded-2xl bg-[var(--color-gold)] px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-primary-dark)]"
-              onClick={() => setIsOpen(false)}
-            >
-              Admin Panel
-            </Link>
           </nav>
+
+          {/* Divider */}
+          <div className="my-6 h-px bg-[rgba(201,168,106,0.12)]" />
+
+          {/* Info section */}
+          <div className="flex flex-col gap-4 px-4">
+            <div className="flex items-start gap-3 text-sm text-[rgba(255,255,255,0.55)]">
+              <Clock size={16} className="mt-0.5 shrink-0 text-[var(--color-gold)]" />
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-[rgba(201,168,106,0.6)]">Opening Hours</p>
+                <p className="mt-1 text-[rgba(255,255,255,0.7)]">Tue – Sun: 11:30 – 22:00</p>
+                <p className="text-[rgba(255,255,255,0.45)]">Closed on Mondays</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 text-sm text-[rgba(255,255,255,0.55)]">
+              <MapPin size={16} className="mt-0.5 shrink-0 text-[var(--color-gold)]" />
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-[rgba(201,168,106,0.6)]">Location</p>
+                <p className="mt-1 text-[rgba(255,255,255,0.7)]">Baden-Baden, Germany</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="mt-auto flex flex-col gap-3 px-4 pb-6">
+            <a
+              href="tel:+4907221123456"
+              className="flex items-center justify-center gap-2.5 rounded-full bg-[linear-gradient(135deg,var(--color-gold),#ddbf88)] px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-primary-dark)] transition-all duration-300 hover:shadow-[0_16px_30px_rgba(201,168,106,0.26)]"
+              onClick={closeMenu}
+            >
+              <Phone size={16} />
+              Reserve a Table
+            </a>
+          </div>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }
