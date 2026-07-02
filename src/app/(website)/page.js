@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Menu />
       <Highlights />
       <Ingredients />
-      <Menu />
       <Contact />
     </>
   );
