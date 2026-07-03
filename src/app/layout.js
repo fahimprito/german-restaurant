@@ -17,6 +17,11 @@ export const metadata = {
   title: "Schwarzwald Stube | Gasthof & Restaurant",
   description:
     "Premium German restaurant website with a public dining experience and local admin menu management.",
+  icons: {
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -34,4 +39,5 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
 

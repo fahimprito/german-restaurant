@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutDashboard, Soup, Store, X } from "lucide-react";
+import { LayoutDashboard, LogOut, Soup, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -25,7 +25,7 @@ export default function Sidebar({ isOpen = false, onClose = () => {} }) {
       ) : null}
 
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-[88vw] max-w-80 border-r border-[rgba(31,75,67,0.08)] bg-[rgba(255,255,255,0.94)] px-5 py-6 shadow-[0_24px_60px_rgba(0,0,0,0.18)] backdrop-blur-xl transition-transform duration-300 lg:static lg:min-h-screen lg:w-80 lg:translate-x-0 lg:border-b-0 lg:bg-[rgba(255,255,255,0.58)] lg:px-6 lg:shadow-none ${
+        className={`fixed inset-y-0 left-0 z-50 flex w-[88vw] max-w-80 flex-col border-r border-[rgba(31,75,67,0.08)] bg-[rgba(255,255,255,0.94)] px-5 py-6 shadow-[0_24px_60px_rgba(0,0,0,0.18)] backdrop-blur-xl transition-transform duration-300 lg:static lg:min-h-screen lg:w-80 lg:translate-x-0 lg:border-b-0 lg:bg-[rgba(255,255,255,0.58)] lg:px-6 lg:shadow-none ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -79,15 +79,27 @@ export default function Sidebar({ isOpen = false, onClose = () => {} }) {
           })}
         </div>
 
-        <Link
-          href="/"
-          onClick={onClose}
-          className="mt-8 inline-flex items-center gap-2 rounded-full border border-[rgba(31,75,67,0.14)] px-4 py-2 text-sm text-[var(--color-primary)] transition hover:bg-white"
-        >
-          <Store size={16} />
-          Back to website
-        </Link>
+        <div className="mt-auto space-y-3 pt-8">
+          {/* <Link
+            href="/"
+            onClick={onClose}
+            className="inline-flex items-center gap-2 rounded-full border border-[rgba(31,75,67,0.14)] px-4 py-2 text-sm text-[var(--color-primary)] transition hover:bg-white"
+          >
+            <Store size={16} />
+            Back to website
+          </Link> */}
+
+          <Link
+            href="/"
+            onClick={onClose}
+            className="flex w-full items-center justify-center gap-2 rounded-[18px] border border-[rgba(31,75,67,0.16)] bg-white/70 px-4 py-3 text-sm font-medium text-[var(--color-primary-dark)] transition hover:border-[rgba(31,75,67,0.28)] hover:bg-white"
+          >
+            <LogOut size={17} />
+            Logout
+          </Link>
+        </div>
       </aside>
     </>
   );
 }
+
