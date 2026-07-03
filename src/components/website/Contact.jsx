@@ -2,6 +2,7 @@
 
 import { Clock3, Mail, MapPin, Phone, Send, ArrowRight, Utensils } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import PrimaryButton from "../ui/primaryButton";
 
 /* ──────────────────────────────────────────────
    Section ornament — elegant wide flourish
@@ -358,12 +359,12 @@ export default function Contact() {
                   </div>
 
                   {/* Submit */}
-                  <button
+                  <PrimaryButton
                     type="submit"
                     disabled={formStatus !== "idle"}
-                    className="group relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-xl bg-[linear-gradient(135deg,var(--color-gold),#ddbf88)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.15em] text-[var(--color-primary-dark)] transition-all duration-300 hover:-translate-y-px hover:shadow-[0_16px_40px_rgba(201,168,106,0.3)] disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                    className="w-full rounded-xl px-8 py-4 text-sm font-semibold uppercase tracking-[0.15em] cursor-pointer disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none"
                   >
-                    <span className="relative z-10 flex items-center gap-2.5">
+                    <span className="flex items-center gap-2.5">
                       {formStatus === "idle" && (
                         <>
                           <Send size={15} />
@@ -371,10 +372,9 @@ export default function Contact() {
                         </>
                       )}
                       {formStatus === "sending" && "Sending..."}
-                      {formStatus === "sent" && "✓ Message Sent!"}
+                      {formStatus === "sent" && "Message Sent!"}
                     </span>
-                    <span className="absolute inset-0 -translate-x-full bg-[linear-gradient(135deg,#ddbf88,var(--color-gold))] transition-transform duration-500 group-hover:translate-x-0" />
-                  </button>
+                  </PrimaryButton>
                 </form>
 
                 {/* Trust note */}
@@ -444,13 +444,11 @@ export default function Contact() {
                   Our team is available during opening hours to assist you with
                   reservations and special requests.
                 </p>
-                <a
-                  href="tel:+4907221123456"
-                  className="mt-5 inline-flex items-center gap-2.5 rounded-full bg-[linear-gradient(135deg,var(--color-gold),#ddbf88)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-primary-dark)] transition-all duration-300 hover:-translate-y-px hover:shadow-[0_12px_30px_rgba(201,168,106,0.25)]"
-                >
-                  <Phone size={15} />
-                  +49 (0) 7221 123456
-                </a>
+                <PrimaryButton asChild className="mt-5 px-6 py-3 tracking-[0.12em]">
+                  <a href="tel:+4907221123456">
+                    <Phone size={15} />
+                    +49 (0) 7221 123456</a>
+                </PrimaryButton>
               </div>
 
               {/* Atmosphere quote */}
@@ -573,15 +571,15 @@ export default function Contact() {
 
               {/* CTA buttons */}
               <div className="flex flex-col gap-3">
-                <a
-                  href="https://maps.app.goo.gl/C9CRMMfpTxEr5Jhy5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-[linear-gradient(135deg,var(--color-gold),#ddbf88)] px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-primary-dark)] transition-all duration-300 hover:-translate-y-px hover:shadow-[0_16px_32px_rgba(201,168,106,0.25)]"
-                >
-                  <MapPin size={16} />
-                  Get Directions
-                </a>
+                <PrimaryButton asChild className="px-7 py-3.5 tracking-[0.12em] rounded-xl">
+                  <a
+                    href="https://maps.app.goo.gl/C9CRMMfpTxEr5Jhy5"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <MapPin size={16} />
+                    Get Directions
+                  </a>
+                </PrimaryButton>
                 <a
                   href="tel:+4907221123456"
                   className="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/15 bg-white/5 px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/10"
@@ -597,3 +595,4 @@ export default function Contact() {
     </div>
   );
 }
+

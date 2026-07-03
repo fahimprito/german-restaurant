@@ -11,6 +11,9 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import SecondaryButton from "../ui/secondaryButton";
+import PrimaryButton from "../ui/primaryButton";
+import Link from "next/link";
 
 /* ── Ornamental divider ── */
 function SectionDivider({ className = "", dark = false }) {
@@ -195,8 +198,8 @@ export default function About() {
             {/* Left — Image collage */}
             <div
               className={`relative transition-all duration-1000 delay-100 ${storyVisible
-                  ? "translate-x-0 opacity-100"
-                  : "-translate-x-12 opacity-0"
+                ? "translate-x-0 opacity-100"
+                : "-translate-x-12 opacity-0"
                 }`}
             >
               {/* Main image */}
@@ -230,8 +233,8 @@ export default function About() {
             {/* Right — Story text */}
             <div
               className={`transition-all duration-1000 delay-300 ${storyVisible
-                  ? "translate-x-0 opacity-100"
-                  : "translate-x-12 opacity-0"
+                ? "translate-x-0 opacity-100"
+                : "translate-x-12 opacity-0"
                 }`}
             >
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-gold)]">
@@ -320,8 +323,8 @@ export default function About() {
           {/* Header */}
           <div
             className={`mx-auto max-w-2xl text-center transition-all duration-1000 ${philVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
+              ? "translate-y-0 opacity-100"
+              : "translate-y-8 opacity-0"
               }`}
           >
             <SectionDivider className="mb-6 justify-center" dark />
@@ -351,8 +354,8 @@ export default function About() {
                 <article
                   key={title}
                   className={`group relative overflow-hidden rounded-[24px] border border-[rgba(201,168,106,0.1)] bg-[rgba(255,255,255,0.03)] p-7 backdrop-blur-sm transition-all duration-700 hover:border-[rgba(201,168,106,0.25)] hover:bg-[rgba(255,255,255,0.06)] sm:p-8 ${philVisible
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-12 opacity-0"
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-12 opacity-0"
                     }`}
                   style={{
                     transitionDelay: philVisible
@@ -406,8 +409,8 @@ export default function About() {
         <div className="relative mx-auto w-full container px-5 sm:px-8 lg:px-10">
           <div
             className={`mx-auto max-w-2xl text-center transition-all duration-1000 ${timelineVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
+              ? "translate-y-0 opacity-100"
+              : "translate-y-8 opacity-0"
               }`}
           >
             <SectionDivider className="mb-6 justify-center opacity-80" />
@@ -435,8 +438,8 @@ export default function About() {
                 <div
                   key={year}
                   className={`relative flex items-center gap-6 sm:gap-0 transition-all duration-700 ${timelineVisible
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-8 opacity-0"
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
                     } ${index % 2 === 0
                       ? "sm:flex-row"
                       : "sm:flex-row-reverse"
@@ -513,20 +516,12 @@ export default function About() {
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a
-              href="/#menu"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[linear-gradient(135deg,var(--color-gold),#ddbf88)] px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-primary-dark)] transition-all duration-300 hover:-translate-y-px hover:shadow-[0_20px_40px_rgba(201,168,106,0.3)]"
-            >
-              <span className="relative z-10">Explore Our Menu</span>
-              <span className="absolute inset-0 -translate-x-full bg-[linear-gradient(135deg,#ddbf88,var(--color-gold))] transition-transform duration-500 group-hover:translate-x-0" />
-            </a>
-            <a
-              href="/#contact"
-              className="inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,106,0.35)] bg-[rgba(201,168,106,0.06)] px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-gold)] backdrop-blur-sm transition-all duration-300 hover:border-[rgba(201,168,106,0.55)] hover:bg-[rgba(201,168,106,0.12)]"
-              style={{ color: "var(--color-gold)" }}
-            >
-              Reserve a Table
-            </a>
+            <PrimaryButton asChild>
+              <Link href="/#menu">Explore Our Menu</Link>
+            </PrimaryButton>
+            <SecondaryButton asChild>
+              <Link href="/contact">Reserve a Table</Link>
+            </SecondaryButton>
           </div>
         </div>
       </section>

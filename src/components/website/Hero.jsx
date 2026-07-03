@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import SecondaryButton from "../ui/secondaryButton";
+import PrimaryButton from "../ui/primaryButton";
 
 function Ornament({ className = "" }) {
   return (
@@ -123,14 +125,12 @@ export default function Hero() {
 
       <div className="relative flex min-h-screen flex-col items-center justify-center px-5 py-20 text-center sm:px-8">
         <div
-          className={`flex max-w-4xl flex-col items-center transition-all duration-[1200ms] ease-out ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
+          className={`flex max-w-4xl flex-col items-center transition-all duration-[1200ms] ease-out ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
         >
           <div
-            className={`relative mb-8 transition-all delay-100 duration-[1400ms] ease-out ${
-              isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-            }`}
+            className={`relative mb-8 transition-all delay-100 duration-[1400ms] ease-out ${isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+              }`}
           >
             <div className="absolute inset-0 rounded-full bg-[rgba(201,168,106,0.12)] blur-3xl" />
             <Image
@@ -144,23 +144,20 @@ export default function Hero() {
           </div>
 
           <Ornament
-            className={`mb-6 w-48 text-[var(--color-gold)] transition-all delay-300 duration-[1000ms] ease-out sm:w-56 ${
-              isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
-            }`}
+            className={`mb-6 w-48 text-[var(--color-gold)] transition-all delay-300 duration-[1000ms] ease-out sm:w-56 ${isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
+              }`}
           />
 
           <p
-            className={`mb-5 text-xs uppercase tracking-[0.5em] text-[rgba(255,255,255,0.6)] transition-all delay-[400ms] duration-[1000ms] ease-out sm:text-sm ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-            }`}
+            className={`mb-5 text-xs uppercase tracking-[0.5em] text-[rgba(255,255,255,0.6)] transition-all delay-[400ms] duration-[1000ms] ease-out sm:text-sm ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+              }`}
           >
             Est. 1928 &nbsp;&middot;&nbsp; Baden-Baden, Germany
           </p>
 
           <h1
-            className={`font-[var(--font-playfair)] text-5xl leading-[1.0] tracking-wide text-white transition-all delay-500 duration-[1200ms] ease-out sm:text-6xl md:text-7xl lg:text-8xl ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-            }`}
+            className={`font-[var(--font-playfair)] text-5xl leading-[1.0] tracking-wide text-white transition-all delay-500 duration-[1200ms] ease-out sm:text-6xl md:text-7xl lg:text-8xl ${isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+              }`}
           >
             Schwarzwald
             <br />
@@ -168,23 +165,20 @@ export default function Hero() {
           </h1>
 
           <p
-            className={`mt-5 text-base uppercase tracking-[0.4em] text-[var(--color-gold)] transition-all delay-[600ms] duration-[1000ms] ease-out sm:text-lg ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-            }`}
+            className={`mt-5 text-base uppercase tracking-[0.4em] text-[var(--color-gold)] transition-all delay-[600ms] duration-[1000ms] ease-out sm:text-lg ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+              }`}
           >
             Gasthof &amp; Restaurant
           </p>
 
           <Ornament
-            className={`mt-6 w-48 text-[var(--color-gold)] transition-all delay-700 duration-[1000ms] ease-out sm:w-56 ${
-              isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
-            }`}
+            className={`mt-6 w-48 text-[var(--color-gold)] transition-all delay-700 duration-[1000ms] ease-out sm:w-56 ${isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
+              }`}
           />
 
           <p
-            className={`mt-8 max-w-xl text-base leading-[1.9] text-[rgba(255,255,255,0.72)] transition-all delay-[800ms] duration-[1000ms] ease-out sm:text-lg ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-            }`}
+            className={`mt-8 max-w-xl text-base leading-[1.9] text-[rgba(255,255,255,0.72)] transition-all delay-[800ms] duration-[1000ms] ease-out sm:text-lg ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+              }`}
           >
             Fine German cuisine rooted in nearly a century of Black Forest tradition.
             An intimate atmosphere of heritage, warmth, and refined hospitality
@@ -192,25 +186,29 @@ export default function Hero() {
           </p>
 
           <div
-            className={`mt-10 flex flex-wrap items-center justify-center gap-4 transition-all delay-[900ms] duration-[1000ms] ease-out sm:gap-5 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-            }`}
+            className={`mt-10 flex flex-wrap items-center justify-center gap-4 transition-all delay-[900ms] duration-[1000ms] ease-out sm:gap-5 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+              }`}
           >
-            <a
+            {/* <a
               href="#menu"
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[linear-gradient(135deg,var(--color-gold),#ddbf88)] px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-primary-dark)] transition-all duration-300 hover:-translate-y-px hover:shadow-[0_20px_40px_rgba(201,168,106,0.3)]"
             >
               <span className="relative z-10">Explore Menu</span>
               <span className="absolute inset-0 -translate-x-full bg-[linear-gradient(135deg,#ddbf88,var(--color-gold))] transition-transform duration-500 group-hover:translate-x-0" />
-            </a>
-            <a
+            </a> */}
+            <PrimaryButton asChild>
+              <a href="#menu">Explore Menu</a>
+            </PrimaryButton>
+            {/* <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,106,0.35)] bg-[rgba(201,168,106,0.06)] px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-gold)] backdrop-blur-sm transition-all duration-300 hover:border-[rgba(201,168,106,0.55)] hover:bg-[rgba(201,168,106,0.12)]"
               style={{ color: "var(--color-gold)" }}
             >
               Reserve a Table
-            </a>
-            <SecondaryButton>Reserve a Table</SecondaryButton>
+            </a> */}
+            <SecondaryButton asChild>
+              <Link href="/contact">Reserve a Table</Link>
+            </SecondaryButton>
           </div>
         </div>
       </div>
@@ -220,5 +218,7 @@ export default function Hero() {
     </section>
   );
 }
+
+
 
 
