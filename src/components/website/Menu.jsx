@@ -151,7 +151,7 @@ export default function Menu() {
     <section
       id="menu"
       ref={sectionRef}
-      className="relative overflow-hidden py-28 sm:py-36"
+      className="relative overflow-hidden py-20 sm:py-24"
       style={{
         background:
           "linear-gradient(180deg, #efe5d3 0%, #f7f3ea 16%, #fbf8f1 50%, #f7f3ea 84%, #f6efe0 100%)",
@@ -159,7 +159,6 @@ export default function Menu() {
     >
       {/* Background textures */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,106,0.1),transparent_55%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(31,75,67,0.04),transparent_50%)]" />
       <div className="absolute -right-40 top-1/4 h-[500px] w-[500px] rounded-full bg-[rgba(201,168,106,0.04)] blur-[120px]" />
       <div className="absolute -left-40 bottom-1/4 h-[400px] w-[400px] rounded-full bg-[rgba(31,75,67,0.03)] blur-[100px]" />
 

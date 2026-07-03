@@ -75,11 +75,10 @@ export default function Ingredients() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[var(--color-primary-dark)] py-24 sm:py-32"
+      className="relative overflow-hidden bg-[var(--color-primary-dark)] py-20 sm:py-24"
     >
       {/* Background textures */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,106,0.08),transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(31,75,67,0.5),transparent_60%)]" />
 
       {/* Subtle grid pattern overlay */}
       <div

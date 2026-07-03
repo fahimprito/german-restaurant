@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import SecondaryButton from "../ui/secondaryButton";
 
 function Ornament({ className = "" }) {
   return (
@@ -209,6 +210,7 @@ export default function Hero() {
             >
               Reserve a Table
             </a>
+            <SecondaryButton>Reserve a Table</SecondaryButton>
           </div>
         </div>
       </div>

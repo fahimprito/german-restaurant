@@ -79,9 +79,9 @@ export default function Highlights() {
   return (
     <section
       id="highlights"
-      className="relative overflow-hidden bg-[linear-gradient(180deg,#f6efe0_0%,#fbf8f1_22%,transparent_100%)] py-32 sm:py-36"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#f6efe0_0%,#fbf8f1_22%,transparent_100%)] py-20 sm:py-24"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(31,75,67,0.04),transparent_60%)]" />
+      {/* <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(31,75,67,0.04),transparent_60%)]" /> */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,106,0.05),transparent_60%)]" />
 
       <div className="relative mx-auto w-full container px-5 sm:px-8 lg:px-10">
