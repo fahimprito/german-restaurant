@@ -9,17 +9,9 @@ export default function AdminLayout({ children }) {
 
   return (
     <div className="min-h-screen bg-[#f4efe4] text-[var(--color-ink)]">
-      <div className="mx-auto flex min-h-screen container flex-col lg:flex-row">
+      <div className="mx-auto flex min-h-screen flex-col lg:flex-row">
         <div className="sticky top-0 z-40 border-b border-[rgba(31,75,67,0.08)] bg-[rgba(255,255,255,0.78)] px-5 py-4 shadow-[var(--shadow-card)] backdrop-blur-sm lg:hidden">
-          <div className="flex items-center justify-between gap-4">
-            <div>
-              <p className="font-[var(--font-playfair)] text-xl text-[var(--color-primary-dark)]">
-                Schwarzwald Stube
-              </p>
-              <p className="text-xs uppercase tracking-[0.22em] text-[rgba(44,44,44,0.56)]">
-                Admin Panel
-              </p>
-            </div>
+          <div className="flex items-center gap-4">
             <button
               type="button"
               aria-label="Open admin navigation"
@@ -28,6 +20,14 @@ export default function AdminLayout({ children }) {
             >
               <Menu size={20} />
             </button>
+            <div>
+              <p className="font-[var(--font-playfair)] text-xl text-[var(--color-primary-dark)]">
+                Schwarzwald Stube
+              </p>
+              <p className="text-xs uppercase tracking-[0.22em] text-[rgba(44,44,44,0.56)]">
+                Admin Panel
+              </p>
+            </div>
           </div>
         </div>
 
