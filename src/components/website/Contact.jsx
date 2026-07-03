@@ -116,15 +116,6 @@ export default function Contact() {
 
         <div className="relative mx-auto w-full container px-5 sm:px-8 lg:px-10">
           <div className="mx-auto max-w-2xl text-center">
-            <SectionDivider className="mb-6 text-[var(--color-gold)]" />
-
-            <p
-              className={`mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-gold)] transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-                }`}
-            >
-              <Utensils size={14} />
-              Get in Touch
-            </p>
 
             <h1
               className={`font-[var(--font-playfair)] text-4xl leading-[1.15] text-[var(--color-primary-dark)] transition-all delay-100 duration-1000 sm:text-5xl lg:text-6xl ${isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
