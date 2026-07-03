@@ -1,4 +1,4 @@
-import Contact from "@/components/website/Contact";
+
 import Hero from "@/components/website/Hero";
 import Highlights from "@/components/website/Highlights";
 import Ingredients from "@/components/website/Ingredients";
@@ -11,7 +11,7 @@ export default function Home() {
       <Menu />
       <Highlights />
       <Ingredients />
-      <Contact />
+
     </>
   );
 }

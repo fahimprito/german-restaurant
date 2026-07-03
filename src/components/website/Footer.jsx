@@ -4,7 +4,7 @@ const quickLinks = [
   { href: "/about", label: "About Us" },
   { href: "/#highlights", label: "Culinary Highlights" },
   { href: "/#menu", label: "Food Menu" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Footer() {
