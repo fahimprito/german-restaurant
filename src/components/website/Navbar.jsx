@@ -19,7 +19,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const isHomePage = pathname === "/";
-  const isElevated = !isHomePage || isScrolled || isOpen;
+  const isDesktopTransparent = isHomePage && !isScrolled && !isOpen;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,9 +50,9 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${isElevated
-          ? "border-b border-[rgba(201,168,106,0.12)] bg-[rgba(15,40,35,0.95)] shadow-[0_4px_30px_rgba(0,0,0,0.25)] backdrop-blur-2xl"
-          : "border-b border-transparent bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 border-b border-[rgba(201,168,106,0.12)] bg-[var(--color-primary-dark)] shadow-[0_4px_30px_rgba(0,0,0,0.24)] transition-all duration-500 ${isDesktopTransparent
+        ? "lg:border-transparent lg:bg-transparent lg:shadow-none"
+        : ""
         }`}
     >
       <div className="mx-auto flex w-full container items-center justify-between gap-4 px-5 py-3.5 sm:px-8 lg:px-10">
@@ -108,8 +108,8 @@ export default function Navbar() {
           type="button"
           aria-label="Toggle navigation"
           className={`relative inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 lg:hidden ${isOpen
-              ? "border-[rgba(201,168,106,0.4)] bg-[rgba(201,168,106,0.1)] text-[var(--color-gold)]"
-              : "border-[rgba(255,255,255,0.15)] bg-[rgba(255,255,255,0.05)] text-white"
+            ? "border-[rgba(201,168,106,0.4)] bg-[rgba(201,168,106,0.1)] text-[var(--color-gold)]"
+            : "border-[rgba(255,255,255,0.15)] bg-[rgba(255,255,255,0.05)] text-white"
             }`}
           onClick={() => setIsOpen((value) => !value)}
         >
@@ -125,8 +125,8 @@ export default function Navbar() {
       {/* ── Mobile menu (full-screen overlay) ── */}
       <div
         className={`fixed inset-0 top-[calc(var(--nav-height,62px))] z-40 transition-all duration-500 lg:hidden ${isOpen
-            ? "visible opacity-100"
-            : "invisible opacity-0"
+          ? "visible opacity-100"
+          : "invisible opacity-0"
           }`}
         style={{ "--nav-height": "62px" }}
       >
@@ -194,6 +194,8 @@ export default function Navbar() {
     </header>
   );
 }
+
+
 
 
 
