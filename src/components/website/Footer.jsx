@@ -9,7 +9,7 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-primary-dark)] text-white">
+    <footer className="bg-(--color-primary-dark) text-white">
       <div className="mx-auto w-full container px-5 py-12 sm:px-8 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
@@ -26,10 +26,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-[var(--font-playfair)] text-2xl">Quick Links</p>
+            <p className="font-(--font-playfair) text-2xl">Quick Links</p>
             <div className="mt-4 flex flex-col gap-3 text-sm text-[rgba(255,255,255,0.72)]">
               {quickLinks.map((link) => (
-                <a key={link.href} href={link.href} className="transition hover:text-[var(--color-gold)]">
+                <a key={link.href} href={link.href} className="transition hover:text-(--color-gold)">
                   {link.label}
                 </a>
               ))}
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-[var(--font-playfair)] text-2xl">Contact</p>
+            <p className="font-(--font-playfair) text-2xl">Contact</p>
             <div className="mt-4 space-y-3 text-sm text-[rgba(255,255,255,0.72)]">
               <p>14 Lichtentaler Avenue, 76530 Baden-Baden</p>
               <p>+49 (0) 7221 123456</p>

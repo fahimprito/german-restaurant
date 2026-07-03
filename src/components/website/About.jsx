@@ -28,7 +28,7 @@ function SectionDivider({ className = "", dark = false }) {
       />
       <svg
         viewBox="0 0 48 18"
-        className="h-4 w-16 text-[var(--color-gold)]"
+        className="h-4 w-16 text-(--color-gold)"
         fill="none"
         aria-hidden="true"
       >
@@ -128,7 +128,7 @@ export default function About() {
 
         {/* Content */}
         <div
-          className={`relative z-10 mx-auto w-full container px-5 py-32 text-center sm:px-8 lg:px-10 transition-all duration-[1200ms] ease-out ${heroVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          className={`relative z-10 mx-auto w-full container px-5 py-32 text-center sm:px-8 lg:px-10 transition-all duration-1200 ease-out ${heroVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
         >
           <SectionDivider className="mb-6 justify-center" />
@@ -137,10 +137,10 @@ export default function About() {
             Est. 1928 &nbsp;&middot;&nbsp; Baden-Baden, Germany
           </p>
 
-          <h1 className="mx-auto max-w-3xl font-[var(--font-playfair)] text-4xl leading-[1.15] tracking-wide text-white sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="mx-auto max-w-3xl font-(--font-playfair) text-4xl leading-[1.15] tracking-wide text-white sm:text-5xl md:text-6xl lg:text-7xl">
             A Table Shaped
             <br />
-            <span className="italic text-[var(--color-gold)]">by Heritage</span>
+            <span className="italic text-(--color-gold)">by Heritage</span>
           </h1>
 
           <p className="mx-auto mt-7 max-w-xl text-base leading-[1.9] text-[rgba(255,255,255,0.65)] sm:text-lg">
@@ -170,8 +170,8 @@ export default function About() {
           </svg>
           {/* Centered ornament on the curve */}
           <div className="absolute left-1/2 bottom-10 -translate-x-1/2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(201,168,106,0.35)] bg-[var(--color-cream)] shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
-              <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 text-[var(--color-gold)]" fill="none">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(201,168,106,0.35)] bg-(--color-cream) shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
+              <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 text-(--color-gold)" fill="none">
                 <path d="M8 1 L15 8 L8 15 L1 8Z" stroke="currentColor" strokeWidth="1.2" />
                 <circle cx="8" cy="8" r="2" fill="currentColor" opacity="0.6" />
               </svg>
@@ -204,7 +204,7 @@ export default function About() {
             >
               {/* Main image */}
               <div className="relative overflow-hidden rounded-[28px] shadow-[0_20px_60px_rgba(23,59,53,0.12)]">
-                <div className="relative h-[400px] sm:h-[500px]">
+                <div className="relative h-100 sm:h-125">
                   <Image
                     src="/images/culinary/4WKZfW9qrwN53CYDHT63ATyWlk1MLzU3xlnBcqdZzgWWfLIlCs-Z9FdfznFmPPOicsqskyKFvUP5WgQRr4dg-R3x1Oah4U1Pw_H9gvbF2AZa69YZM7M2GfOSR_Ze92UXSaNJmtY6yFV_heAKxJ4AHs4K2I09FAStBrbG8IvUeXfWMS9pMirS6n6y7wLiJIMn.jpg"
                     alt="Traditional German cuisine crafted by hand"
@@ -217,9 +217,9 @@ export default function About() {
               </div>
 
               {/* Floating accent card */}
-              <div className="absolute -bottom-6 -right-4 z-10 rounded-2xl border border-[rgba(201,168,106,0.25)] bg-[var(--color-primary-dark)] px-6 py-5 shadow-[0_16px_40px_rgba(0,0,0,0.2)] sm:-right-8">
-                <p className="font-[var(--font-playfair)] text-3xl text-white sm:text-4xl">
-                  96<span className="text-[var(--color-gold)]">+</span>
+              <div className="absolute -bottom-6 -right-4 z-10 rounded-2xl border border-[rgba(201,168,106,0.25)] bg-(--color-primary-dark) px-6 py-5 shadow-[0_16px_40px_rgba(0,0,0,0.2)] sm:-right-8">
+                <p className="font-(--font-playfair) text-3xl text-white sm:text-4xl">
+                  96<span className="text-(--color-gold)">+</span>
                 </p>
                 <p className="mt-1 text-[10px] uppercase tracking-[0.3em] text-[rgba(255,255,255,0.6)]">
                   Years of Heritage
@@ -237,14 +237,14 @@ export default function About() {
                 : "translate-x-12 opacity-0"
                 }`}
             >
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-gold)]">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-(--color-gold)">
                 Our Heritage
               </p>
 
-              <h2 className="font-[var(--font-playfair)] text-3xl leading-tight text-[var(--color-primary-dark)] sm:text-4xl lg:text-[2.75rem]">
+              <h2 className="font-(--font-playfair) text-3xl leading-tight text-(--color-primary-dark) sm:text-4xl lg:text-[2.75rem]">
                 Where Tradition Meets
                 <br />
-                <span className="italic text-[var(--color-primary)]">
+                <span className="italic text-(--color-primary)">
                   Timeless Elegance
                 </span>
               </h2>
@@ -279,16 +279,16 @@ export default function About() {
                 ].map(({ icon: Icon, label, value }) => (
                   <div
                     key={label}
-                    className="rounded-xl border border-[var(--color-border)] bg-[rgba(255,255,255,0.6)] px-4 py-3.5"
+                    className="rounded-xl border border-(--color-border) bg-[rgba(255,255,255,0.6)] px-4 py-3.5"
                   >
                     <Icon
                       size={16}
-                      className="mb-2 text-[var(--color-gold)]"
+                      className="mb-2 text-(--color-gold)"
                     />
                     <p className="text-[10px] uppercase tracking-[0.25em] text-[rgba(44,44,44,0.45)]">
                       {label}
                     </p>
-                    <p className="mt-0.5 font-[var(--font-playfair)] text-lg text-[var(--color-primary-dark)]">
+                    <p className="mt-0.5 font-(--font-playfair) text-lg text-(--color-primary-dark)">
                       {value}
                     </p>
                   </div>
@@ -304,7 +304,7 @@ export default function About() {
           ═══════════════════════════════════════════ */}
       <section
         ref={philRef}
-        className="relative overflow-hidden bg-[var(--color-primary-dark)] py-24 sm:py-32"
+        className="relative overflow-hidden bg-(--color-primary-dark) py-24 sm:py-32"
       >
         {/* Background textures */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,106,0.07),transparent_55%)]" />
@@ -317,7 +317,7 @@ export default function About() {
             backgroundSize: "60px 60px",
           }}
         />
-        <div className="absolute -right-32 top-1/3 h-[400px] w-[400px] rounded-full bg-[rgba(201,168,106,0.05)] blur-[120px]" />
+        <div className="absolute -right-32 top-1/3 h-100 w-100 rounded-full bg-[rgba(201,168,106,0.05)] blur-[120px]" />
 
         <div className="relative mx-auto w-full container px-5 sm:px-8 lg:px-10">
           {/* Header */}
@@ -329,11 +329,11 @@ export default function About() {
           >
             <SectionDivider className="mb-6 justify-center" dark />
 
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-gold)]">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-(--color-gold)">
               What We Stand For
             </p>
 
-            <h2 className="font-[var(--font-playfair)] text-4xl leading-tight text-white sm:text-5xl lg:text-[3.5rem]">
+            <h2 className="font-(--font-playfair) text-4xl leading-tight text-white sm:text-5xl lg:text-[3.5rem]">
               Our Guiding
               <br />
               <span className="italic text-[rgba(201,168,106,0.85)]">
@@ -353,7 +353,7 @@ export default function About() {
               ({ title, subtitle, description, icon: Icon }, index) => (
                 <article
                   key={title}
-                  className={`group relative overflow-hidden rounded-[24px] border border-[rgba(201,168,106,0.1)] bg-[rgba(255,255,255,0.03)] p-7 backdrop-blur-sm transition-all duration-700 hover:border-[rgba(201,168,106,0.25)] hover:bg-[rgba(255,255,255,0.06)] sm:p-8 ${philVisible
+                  className={`group relative overflow-hidden rounded-3xl border border-[rgba(201,168,106,0.1)] bg-[rgba(255,255,255,0.03)] p-7 backdrop-blur-sm transition-all duration-700 hover:border-[rgba(201,168,106,0.25)] hover:bg-[rgba(255,255,255,0.06)] sm:p-8 ${philVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-12 opacity-0"
                     }`}
@@ -364,15 +364,15 @@ export default function About() {
                   }}
                 >
                   {/* Icon */}
-                  <div className="mb-6 inline-flex rounded-2xl border border-[rgba(201,168,106,0.2)] bg-[rgba(201,168,106,0.08)] p-4 text-[var(--color-gold)]">
+                  <div className="mb-6 inline-flex rounded-2xl border border-[rgba(201,168,106,0.2)] bg-[rgba(201,168,106,0.08)] p-4 text-(--color-gold)">
                     <Icon size={24} />
                   </div>
 
-                  <h3 className="font-[var(--font-playfair)] text-2xl tracking-wide text-white">
+                  <h3 className="font-(--font-playfair) text-2xl tracking-wide text-white">
                     {title}
                   </h3>
                   {subtitle && (
-                    <p className="mt-1 text-xs uppercase tracking-[0.25em] text-[var(--color-gold)] opacity-70">
+                    <p className="mt-1 text-xs uppercase tracking-[0.25em] text-(--color-gold) opacity-70">
                       {subtitle}
                     </p>
                   )}
@@ -415,14 +415,14 @@ export default function About() {
           >
             <SectionDivider className="mb-6 justify-center opacity-80" />
 
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-gold)]">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-(--color-gold)">
               Our Journey
             </p>
 
-            <h2 className="font-[var(--font-playfair)] text-4xl leading-tight text-[var(--color-primary-dark)] sm:text-5xl">
+            <h2 className="font-(--font-playfair) text-4xl leading-tight text-(--color-primary-dark) sm:text-5xl">
               Milestones Through
               <br />
-              <span className="italic text-[var(--color-primary)]">
+              <span className="italic text-(--color-primary)">
                 the Decades
               </span>
             </h2>
@@ -452,17 +452,17 @@ export default function About() {
                 >
                   {/* Dot */}
                   <div className="absolute left-6 z-10 flex h-3 w-3 -translate-x-1/2 items-center justify-center sm:left-1/2">
-                    <span className="h-3 w-3 rounded-full border-2 border-[var(--color-gold)] bg-[var(--color-cream)]" />
+                    <span className="h-3 w-3 rounded-full border-2 border-(--color-gold) bg-(--color-cream)" />
                     <span className="absolute h-6 w-6 rounded-full bg-[rgba(201,168,106,0.15)]" />
                   </div>
 
                   {/* Content card */}
                   <div className="ml-12 sm:ml-0 sm:w-[calc(50%-32px)]">
                     <div
-                      className={`rounded-2xl border border-[var(--color-border)] bg-[rgba(255,255,255,0.7)] p-5 shadow-[0_4px_20px_rgba(23,59,53,0.05)] backdrop-blur-sm ${index % 2 === 0 ? "sm:mr-8" : "sm:ml-8"
+                      className={`rounded-2xl border border-(--color-border) bg-[rgba(255,255,255,0.7)] p-5 shadow-[0_4px_20px_rgba(23,59,53,0.05)] backdrop-blur-sm ${index % 2 === 0 ? "sm:mr-8" : "sm:ml-8"
                         }`}
                     >
-                      <p className="font-[var(--font-playfair)] text-2xl text-[var(--color-gold)] sm:text-3xl">
+                      <p className="font-(--font-playfair) text-2xl text-(--color-gold) sm:text-3xl">
                         {year}
                       </p>
                       <p className="mt-1.5 text-sm leading-relaxed text-[rgba(44,44,44,0.7)]">
@@ -485,10 +485,10 @@ export default function About() {
           ═══════════════════════════════════════════ */}
       <section
         ref={ctaRef}
-        className="relative overflow-hidden bg-[var(--color-primary-dark)] py-24 sm:py-28"
+        className="relative overflow-hidden bg-(--color-primary-dark) py-24 sm:py-28"
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,106,0.06),transparent_60%)]" />
-        <div className="absolute -left-32 bottom-0 h-[300px] w-[300px] rounded-full bg-[rgba(201,168,106,0.04)] blur-[100px]" />
+        <div className="absolute -left-32 bottom-0 h-75 w-75 rounded-full bg-[rgba(201,168,106,0.04)] blur-[100px]" />
 
         <div
           className={`relative mx-auto w-full container px-5 text-center sm:px-8 lg:px-10 transition-all duration-1000 ${ctaVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
@@ -496,14 +496,14 @@ export default function About() {
         >
           <Utensils
             size={32}
-            className="mx-auto mb-6 text-[var(--color-gold)] opacity-60"
+            className="mx-auto mb-6 text-(--color-gold) opacity-60"
           />
 
-          <h2 className="mx-auto max-w-2xl font-[var(--font-playfair)] text-3xl leading-[1.3] text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mx-auto max-w-2xl font-(--font-playfair) text-3xl leading-[1.3] text-white sm:text-4xl lg:text-5xl">
             Whether you are joining us for a celebratory feast, an intimate
             dinner, or a relaxed evening of exceptional food — we invite you to
             experience the timeless charm of{" "}
-            <span className="italic text-[var(--color-gold)]">
+            <span className="italic text-(--color-gold)">
               Schwarzwald Stube
             </span>
             .

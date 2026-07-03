@@ -1,5 +1,6 @@
 import { Inter, Playfair_Display } from "next/font/google";
 import { RestaurantProvider } from "@/context/RestaurantContext";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import "./globals.css";
 
 const inter = Inter({
@@ -25,8 +26,12 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${playfair.variable} scroll-smooth`}
     >
       <body className="min-h-screen bg-(--color-cream) text-(--color-ink) antialiased">
-        <RestaurantProvider>{children}</RestaurantProvider>
+        <RestaurantProvider>
+          {children}
+          <ScrollToTopButton />
+        </RestaurantProvider>
       </body>
     </html>
   );
 }
+
